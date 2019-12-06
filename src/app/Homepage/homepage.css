@@ -1,0 +1,60 @@
+.homepage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgb(152,8,163);
+    background: linear-gradient(90deg, rgba(152,8,163,1) 0%, rgba(97,32,107,1) 35%, rgba(64,12,130,1) 100%);
+}
+
+.homepage .container {
+    text-align: center;
+}
+#btn-space {
+    padding: 10px;
+}
+
+#btn-login {
+    background: #2d85bb;
+    padding: 12px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#btn-login:hover {
+    background: #449acd;
+}
+
+#btn-register {
+    background: #fafafa;
+    padding: 12px;
+    padding-left: 26px;
+    padding-right: 26px;
+    color: #333333;
+    text-decoration: none;
+}
+
+#btn-register:hover {
+    background: #d9dde0;
+}
+
+#title-1 {
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+#title-2 {
+    color: #ffffff;
+    font-size: 38px;
+    /* font-weight: bold; */
+}
+
+#text-description {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    color: #ffffff;
+    font-size: 18px;
+}

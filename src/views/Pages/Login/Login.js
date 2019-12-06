@@ -3,6 +3,22 @@ import { Link } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 
 class Login extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: '',
+      password: ''
+    }
+  }
+
+  doLogin = (event) => {
+    const loginUrl = '/'
+    let payload = {
+      'username': this.state.username,
+      'password': this.state.password
+    }
+  }
+
   render() {
     return (
       <div className="app flex-row align-items-center">
@@ -46,8 +62,7 @@ class Login extends Component {
                   <CardBody className="text-center">
                     <div>
                       <h2>Sign up</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
+                      <p>Jika Anda belum memiliki akun, silahkan terlebih dahulu untuk melakukan register atau daftar akun baru</p>
                       <Link to="/register">
                         <Button color="primary" className="mt-3" active tabIndex={-1}>Register Now!</Button>
                       </Link>
