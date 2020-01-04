@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Badge, UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem } from 'reactstrap';
 import PropTypes from 'prop-types';
+import axios from 'axios'
 
 import { AppAsideToggler, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
 import logo from '../../assets/img/brand/logo.svg'
@@ -14,8 +15,32 @@ const propTypes = {
 const defaultProps = {};
 
 class DefaultHeader extends Component {
-  render() {
+  constructor(props) {
+    super(props)
+    this.state = {
+      loggedOut: false,
+      members: null,
+    }
+  }
 
+  componentDidMount() {
+    this.getUserData()
+  }
+
+  getUserData = () => {
+    let token = JSON.parse(localStorage.getItem('token'))
+    axios.get('http://perdana-indonesia.herokuapp.com/api/v1/user/members/', {
+        headers: {
+            'Content-Type' : 'application/json',
+            'Accept' : 'application/json',
+            'Authorization' : `Token ${token}`
+        }
+    }).then(response => {
+        this.setState({ members: response.data })
+    })
+  }
+
+  render() {
     // eslint-disable-next-line
     const { children, ...attributes } = this.props;
 

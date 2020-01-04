@@ -1,25 +1,71 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import axios from 'axios'
 
 class Login extends Component {
   constructor(props) {
     super(props)
+    let token = localStorage.getItem('token')
+    let loggedIn = true
+    if (token === null) {
+      loggedIn = false
+    }
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      loggedIn
     }
   }
 
-  doLogin = (event) => {
-    const loginUrl = '/'
-    let payload = {
-      'username': this.state.username,
-      'password': this.state.password
-    }
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
   }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const { username, password } = this.state
+    axios.post('http://128.199.200.47:8088/api/v1/user/login', {
+      username: username,
+      password: password
+    })
+      .then(response => {
+        if (response.data.token) {
+          localStorage.setItem('token', JSON.stringify(response.data.token))
+          this.setState({
+            loggedIn: true
+          })
+          console.log('successfully: ', response.data)
+        } else {
+          alert('Username or password is incorrect!')
+        }
+      })
+  }
+
+  // doLogin = () => {
+  //   postData(this.state).then((result) => {
+  //     let responseJSON = result
+  //     const token = responseJSON.token
+  //     JSON.stringify(token)
+  //     if (token) {
+  //       localStorage.setItem('userData', token)
+  //       this.setState({ loggedIn: true })
+  //       console.log(token)
+  //     } else {
+  //       alert('Username atau password Anda salah!')
+  //     }
+  //   })
+  // }
 
   render() {
+    const { username, password, loggedIn} = this.state
+
+    if (loggedIn) {
+      return <Redirect to='/dashboard' />
+    }
+
     return (
       <div className="app flex-row align-items-center">
         <Container>
@@ -28,7 +74,7 @@ class Login extends Component {
               <CardGroup>
                 <Card className="p-4">
                   <CardBody>
-                    <Form>
+                    <Form name='form' onSubmit={this.handleSubmit}>
                       <h1>Login</h1>
                       <p className="text-muted">Sign In to your account</p>
                       <InputGroup className="mb-3">
@@ -37,7 +83,7 @@ class Login extends Component {
                             <i className="icon-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Username" autoComplete="username" />
+                        <Input type="text" name='username' value={username} onChange={this.handleChange} placeholder="Username" autoComplete="username" />
                       </InputGroup>
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
@@ -45,7 +91,7 @@ class Login extends Component {
                             <i className="icon-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="password" placeholder="Password" autoComplete="current-password" />
+                        <Input type="password" name='password' value={password} onChange={this.handleChange} placeholder="Password" autoComplete="current-password" />
                       </InputGroup>
                       <Row>
                         <Col xs="6">

@@ -15,23 +15,8 @@ export default {
     },
     {
       name: 'Profil Member',
-      url: '/member',
-      icon: 'icon-drop',
-    },
-    {
-      name: 'Presensi',
-      url: '/presensi',
-      icon: 'icon-drop',
-    },
-    {
-      name: 'Scoring',
-      url: '/scoring',
-      icon: 'icon-drop',
-    },
-    {
-      name: 'Workout',
-      url: '/workout',
-      icon: 'icon-drop',
+      url: '/dashboard/member/',
+      icon: 'icon-user',
     },
     
     // default sidebar menu
