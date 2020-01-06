@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row, Alert } from 'reactstrap';
 import axios from 'axios'
 
 class Login extends Component {
@@ -39,7 +39,7 @@ class Login extends Component {
           })
           console.log('successfully: ', response.data)
         } else {
-          alert('Username or password is incorrect!')
+          console.log('Username atau password salah!')
         }
       })
   }
