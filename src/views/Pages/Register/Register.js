@@ -62,8 +62,6 @@ class Register extends Component {
       identity_card_photo: this.state.identity_card_photo,
       blood_type: this.state.blood_type,
       disease_history: this.state.disease_history,
-      photo: this.state.photo,
-      public_photo: this.state.public_photo,
       body_height: this.state.body_height,
       body_weight: this.state.body_weight,
       draw_length: this.state.draw_length,
@@ -120,27 +118,11 @@ class Register extends Component {
 
                 {/* Row 2 */}
                 <Row className="justify-content-center">
-                  {/* Born Place */}
-                  <Col>
-                    <Label>Tempat Lahir</Label>
-                    <InputGroup className="mb-3">
-                      <Input type="text" name='born_place' value={born_place} onChange={this.handleChange} placeholder="Tempat lahir" />
-                    </InputGroup>
-                  </Col>
-
                   {/* Religion */}
                   <Col>
                     <Label>Agama</Label>
                     <InputGroup className='mb-3'>
                       <Input type='text' name='religion' value={religion} onChange={this.handleChange} placeholder='Agama' />
-                    </InputGroup>
-                  </Col>
-
-                  {/* Born date */}
-                  <Col>
-                    <Label>Tanggal Lahir</Label>
-                    <InputGroup className="mb-3">
-                      <Input type="date" name='born_date' value={born_date} onChange={this.handleChange} />
                     </InputGroup>
                   </Col>
 
@@ -153,10 +135,34 @@ class Register extends Component {
                       <option value='wanita'>Wanita</option>
                     </select>
                   </Col>
+
+                  {/* Born Place */}
+                  <Col>
+                    <Label>Tempat Lahir</Label>
+                    <InputGroup className="mb-3">
+                      <Input type="text" name='born_place' value={born_place} onChange={this.handleChange} placeholder="Tempat lahir" />
+                    </InputGroup>
+                  </Col>
+
+                  {/* Born date */}
+                  <Col>
+                    <Label>Tanggal Lahir</Label>
+                    <InputGroup className="mb-3">
+                      <Input type="date" name='born_date' value={born_date} onChange={this.handleChange} />
+                    </InputGroup>
+                  </Col>
                 </Row>
 
                 {/* Row 3 */}
                 <Row className="justify-content-center">
+                  {/* Phone */}
+                  <Col>
+                    <Label>Nomor Hp</Label>
+                    <InputGroup className="mb-3">
+                      <Input type="text" name='phone' value={phone} onChange={this.handleChange} placeholder='Nomor hp' />
+                    </InputGroup>
+                  </Col>
+
                   {/* Body Height */}
                   <Col>
                     <Label>Tinggi Badan (cm)</Label>
@@ -178,33 +184,23 @@ class Register extends Component {
                       <Input type="text" name='draw_length' value={draw_length} onChange={this.handleChange} placeholder='Panjang tarikan busur' />
                     </InputGroup>
                   </Col>
-
-                  {/* Club */}
-                  <Col>
-                    <Label>Klub</Label>
-                    <select className='form-control' name='club_id' value={club_id} onChange={this.handleChange}>
-                      <option>Arrihu Archery</option>
-                      <option>Al Badar</option>
-                      <option>Sabash</option>
-                    </select>
-                  </Col>
                 </Row>
 
                 {/* Row 4 */}
                 <Row className="justify-content-center">
-                  {/* Phone */}
-                  <Col>
-                    <Label>Nomor Hp</Label>
-                    <InputGroup className="mb-3">
-                      <Input type="text" name='phone' value={phone} onChange={this.handleChange} placeholder='Nomor hp' />
-                    </InputGroup>
-                  </Col>
-
                   {/* Identity Card Number */}
                   <Col>
                     <Label>NIK</Label>
                     <InputGroup className="mb-3">
                       <Input type="text" name='identity_card_number' value={identity_card_number} onChange={this.handleChange} placeholder='NIK' />
+                    </InputGroup>
+                  </Col>
+
+                  {/* Identity Card Photo */}
+                  <Col>
+                    <Label>Foto KTP</Label>
+                    <InputGroup className="mb-4">
+                      <Input type="file" name='identity_card_photo' value={identity_card_photo} onChange={this.handleChange} />
                     </InputGroup>
                   </Col>
 
@@ -220,6 +216,16 @@ class Register extends Component {
                     </select>
                   </Col>
 
+                  {/* Club */}
+                  <Col>
+                    <Label>Klub</Label>
+                    <select className='form-control' name='club_id' value={club_id} onChange={this.handleChange}>
+                      <option>Arrihu Archery</option>
+                      <option>Al Badar</option>
+                      <option>Sabash</option>
+                    </select>
+                  </Col>
+
                   {/* Satuan */}
                   <Col>
                     <Label>Satuan</Label>
@@ -232,33 +238,6 @@ class Register extends Component {
                 </Row>
 
                 {/* Row 5 */}
-                <Row>
-                  {/* Photo */}
-                  <Col>
-                    <Label>Foto</Label>
-                    <InputGroup className="mb-4">
-                      <Input type="file" name='photo' value={photo} onChange={this.handleChange} />
-                    </InputGroup>
-                  </Col>
-
-                  {/* Public Photo */}
-                  <Col>
-                    <Label>Foto Publik</Label>
-                    <InputGroup className="mb-4">
-                      <Input type="file" name='public_photo' value={public_photo} onChange={this.handleChange} />
-                    </InputGroup>
-                  </Col>
-
-                  {/* Photo */}
-                  <Col>
-                    <Label>Foto KTP</Label>
-                    <InputGroup className="mb-4">
-                      <Input type="file" name='identity_card_photo' value={identity_card_photo} onChange={this.handleChange} />
-                    </InputGroup>
-                  </Col>
-                </Row>
-
-                {/* Row 6 */}
                 <Row className='justify-content-center'>
                   {/* Address */}
                   <Col>
