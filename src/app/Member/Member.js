@@ -41,7 +41,9 @@ class ProfilMember extends React.Component {
         return (
             <div>
                 {this.state.showMemberForm &&
-                    <MemberForm />
+                    <MemberForm 
+                        toggleMemberForm={this.toggleMemberForm}
+                    />
                 }
                 {!this.state.showMemberForm &&
                     <MemberList 
