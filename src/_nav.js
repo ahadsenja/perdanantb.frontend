@@ -14,7 +14,7 @@ export default {
       }
     },
     {
-      name: 'Profil Member',
+      name: 'Profil',
       url: '/dashboard/member/',
       icon: 'icon-user',
     },
