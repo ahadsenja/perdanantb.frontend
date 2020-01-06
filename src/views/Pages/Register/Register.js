@@ -48,7 +48,7 @@ class Register extends Component {
   onUserRegister = event => {
     event.preventDefault()
 
-    axios.post('http://128.199.200.47:8088/api/v1/user/register', {
+    axios.post('http://128.199.200.47:8088/api/v1/user/members', {
       full_name: this.state.full_name,
       username: this.state.username,
       password: this.state.password,
