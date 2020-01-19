@@ -24,7 +24,7 @@ class Login extends Component {
     })
   }
 
-  handleSubmit = (event) => {
+  doLogin = (event) => {
     event.preventDefault()
     const { username, password } = this.state
     axios.post('http://128.199.200.47:8088/api/v1/user/login', {
@@ -44,21 +44,6 @@ class Login extends Component {
       })
   }
 
-  // doLogin = () => {
-  //   postData(this.state).then((result) => {
-  //     let responseJSON = result
-  //     const token = responseJSON.token
-  //     JSON.stringify(token)
-  //     if (token) {
-  //       localStorage.setItem('userData', token)
-  //       this.setState({ loggedIn: true })
-  //       console.log(token)
-  //     } else {
-  //       alert('Username atau password Anda salah!')
-  //     }
-  //   })
-  // }
-
   render() {
     const { username, password, loggedIn} = this.state
 
@@ -74,7 +59,7 @@ class Login extends Component {
               <CardGroup>
                 <Card className="p-4">
                   <CardBody>
-                    <Form name='form' onSubmit={this.handleSubmit}>
+                    <Form name='form' onSubmit={this.doLogin}>
                       <h1>Login</h1>
                       <p className="text-muted">Sign In to your account</p>
                       <InputGroup className="mb-3">

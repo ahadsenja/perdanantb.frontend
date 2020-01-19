@@ -6,19 +6,11 @@ export default {
       icon: 'icon-speedometer',
     },
     {
-      title: true,
-      name: 'Data Master',
-      wrapper: {
-        element: '',
-        attributes: {},
-      }
-    },
-    {
       name: 'Profil',
       url: '/dashboard/member/',
       icon: 'icon-user',
     },
-    
+
     // default sidebar menu
     // {
     //   title: true,
